@@ -8,7 +8,7 @@ use deno_core::error::AnyError;
 // 3. Evaluate the module
 // 4. Repeat until resolved
 //
-// Those are also a high overview of the whole life-cycle that a JavaScript code will go through
+// Those steps are also a high overview of the whole life-cycle that a JavaScript code will go through
 
 async fn run_js(file_path: &str) -> Result<(), AnyError> {
     // Resolve the javascript path module
@@ -33,7 +33,7 @@ async fn run_js(file_path: &str) -> Result<(), AnyError> {
     // Evaluate already enstantiated ESModule
     let result = js_runtime.mod_evaluate(module_id);
 
-    // Runs event loop untul the runtime ('js_runtime') is resolved
+    // Runs event loop until the runtime ('js_runtime') is resolved
     // without waiting for the inspector
     js_runtime.run_event_loop(false).await?;
 
